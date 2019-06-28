@@ -1,0 +1,11 @@
+The major problem with this system is the generation of more than one tree for some phrases such as ‘Who is a duck who flies and climbs.’ 
+One easy way around this is to use a Probabilistic Context Free Grammar, this way when more than one parse tree arises the system can just 
+pick the higher probability tree. Of course, this will not always work as sometimes both parse trees might have extremely low probabilities 
+which yield nonsensical results. This also requires corpora with probably data which would further slowdown the performance of the system.
+
+As well as this, the phrase ‘Who is a red dog?’ cannot be parsed. This is due to the fact there are no rules encapsulating the concept of 
+adjective phrases. So, the grammar cannot parse ‘red dog’ together. One fix for this could be to use the NLTK library for grammars, this 
+would mean the system could receive much larger sets of rules and would be generalisable and flexible.
+
+This system runs extremely slowly, without major optimisations, such as caching a shorter list of verbs and their tags to scan through 
+for verb_stems() and using list comprehensions over for loops. More optimisations could be made but this may require changing nltk itself.
